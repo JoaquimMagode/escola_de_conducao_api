@@ -1,10 +1,24 @@
 package com.escoladeconducao.escola_de_conducao_api.aluno;
 
-import com.escoladeconducao.escola_de_conducao_api.admin.Funcionario;
-import com.escoladeconducao.escola_de_conducao_api.cargos.Cargos;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "alunos")
 
 public class Aluno {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idAluno;
     private String nome;
     private String email;
     private String telefone;
