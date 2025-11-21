@@ -1,5 +1,6 @@
 package com.escoladeconducao.escola_de_conducao_api.aluno;
 
+import com.escoladeconducao.escola_de_conducao_api.admin.Funcionario;
 import com.escoladeconducao.escola_de_conducao_api.cargos.Cargos;
 
 public class Aluno {
@@ -15,5 +16,5 @@ public class Aluno {
     private String senha;
     private String status;
     private String dataCadastro;
-    private long idCardatro;
+    private int idFuncionario;
 }
