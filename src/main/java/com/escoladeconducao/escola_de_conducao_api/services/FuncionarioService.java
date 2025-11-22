@@ -13,19 +13,25 @@ public class FuncionarioService {
 
     @Autowired
     public final FuncionarioRepo funcionarioRepo;
-
+    
+    //Constructor
     public FuncionarioService(FuncionarioRepo funcionarioRepo) {
         this.funcionarioRepo = funcionarioRepo;
     }
 
+    //Get all funcionarios
     public List<Funcionario> getAllFuncionarios() {
         return funcionarioRepo.findAll();
     }
 
+    //Get funcionario by ID
     public Funcionario getFuncionarioById(int id) {
-        return funcionarioRepo.stream()
-                .filter(p -> p.getId() == id)
-                .findFirst().orElse(new Funcionario(0, "null", Cargos.Admin, "null", "null"));
+        return funcionarioRepo.findById(id).orElse(null);
+    }
+
+    //Add funcionario
+    public void addFuncionarios(Funcionario funcionario) {
+        funcionarioRepo.save(funcionario);
     }
     
 }

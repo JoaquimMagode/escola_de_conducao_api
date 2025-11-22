@@ -8,6 +8,8 @@ import com.escoladeconducao.escola_de_conducao_api.admin.Funcionario;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.escoladeconducao.escola_de_conducao_api.services.FuncionarioService;
 
@@ -19,16 +21,21 @@ public class FucionarioController {
     @Autowired
     public FuncionarioService funcionarioService;
 
-
-
+    //Get all funcionarios
     @GetMapping("/api/v1/funcionarios")
     public List<Funcionario> getAllFuncionarios(){
         return funcionarioService.getAllFuncionarios();
     }
 
+    //Get funcionario by ID
     @GetMapping("/api/v1/funcionarios/{id}")
     public Funcionario getFuncionarioById(@PathVariable int id){
         return funcionarioService.getFuncionarioById(id);
+    }
+
+    @PostMapping("/api/v1/funcionarios")
+    public void addFuncionarios(@RequestBody Funcionario funcionario){
+        funcionarioService.addFuncionarios(funcionario);
     }
     
 }
