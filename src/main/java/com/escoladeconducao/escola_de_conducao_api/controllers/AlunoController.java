@@ -17,6 +17,6 @@ public class AlunoController {
     
     @GetMapping("/api/v1/alunos")
     public String getAlunos(){
-        return "Alunos";
+        return alunoService.getAlunos();
     }
 }
