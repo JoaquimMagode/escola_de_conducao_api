@@ -19,4 +19,8 @@ public class AlunoService {
     public List<Aluno> getAlunos(){
         return alunoRepo.findAll();
     }
+
+    public void addAlunos(Aluno aluno){
+        alunoRepo.save(aluno);
+    }
 }
